@@ -60,7 +60,7 @@ func (self *Config) read(buf *bufio.Reader) (err error) {
 
 	for {
 		l, err := buf.ReadString('\n') // parse line-by-line
-		if err == io.EOF {
+		if err == io.EOF && len(l) <= 0 {
 			break
 		} else if err != nil {
 			return err
